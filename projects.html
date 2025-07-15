@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahmad Hassan | Projects</title>
+  <meta name="description" content="Explore projects by Ahmad Hassan, including cybersecurity tools, websites, and automation scripts." />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --clr-bg-light: #f9fafb;
+      --clr-bg-dark: #121212;
+      --clr-primary: #ff4757;
+      --clr-primary-light: #ff6b81;
+      --clr-text-light: #2f3640;
+      --clr-text-dark: #eaeaea;
+      --clr-shadow-light: rgba(0,0,0,0.1);
+      --clr-shadow-dark: rgba(255,255,255,0.07);
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --font-heading: 'Poppins', sans-serif;
+    }
+
+    /* Reset and base styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--clr-bg-light);
+      color: var(--clr-text-light);
+      font-family: var(--font-main);
+      line-height: 1.65;
+      font-size: 1rem;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--clr-primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: var(--clr-primary-light);
+      outline: none;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--clr-text-light);
+    }
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: 0.04em;
+    }
+    h2 {
+      font-size: 2rem;
+      border-bottom: 3px solid var(--clr-primary);
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      margin-bottom: 1rem;
+      color: var(--clr-text-light);
+      font-weight: 400;
+    }
+    ul {
+      padding-left: 1.25rem;
+      list-style-type: disc;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #222831;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    nav ul li a.active,
+    nav ul li a:hover,
+    nav ul li a:focus {
+      border-bottom-color: var(--clr-primary);
+      color: var(--clr-primary);
+      outline: none;
+    }
+
+    #menuToggle {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: none;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    #darkToggle {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    #darkToggle:hover,
+    #darkToggle:focus {
+      background-color: var(--clr-primary);
+      border-color: var(--clr-primary);
+      outline: none;
+      color: white;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 4px solid #ff4757;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card h3 {
+      color: #ff4757;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .project-links a {
+      margin-right: 10px;
+      color: #0d6efd;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Back to top button */
+    #backToTop {
+      position: fixed;
+      right: 20px;
+      bottom: 40px;
+      background: var(--clr-primary);
+      color: white;
+      border: none;
+      padding: 14px 16px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(255, 71, 87, 0.5);
+      display: none;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    #backToTop:hover,
+    #backToTop:focus {
+      background: var(--clr-primary-light);
+      outline: none;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: var(--clr-bg-dark);
+      color: var(--clr-text-dark);
+    }
+    body.dark-mode a {
+      color: var(--clr-primary-light);
+    }
+    body.dark-mode a:hover,
+    body.dark-mode a:focus {
+      color: var(--clr-primary);
+    }
+    body.dark-mode header {
+      background-color: #181818;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.07);
+    }
+    body.dark-mode nav ul li a {
+      color: var(--clr-text-dark);
+      border-bottom-color: transparent;
+    }
+    body.dark-mode nav ul li a.active,
+    body.dark-mode nav ul li a:hover,
+    body.dark-mode nav ul li a:focus {
+      border-bottom-color: var(--clr-primary-light);
+      color: var(--clr-primary-light);
+    }
+    body.dark-mode #darkToggle {
+      border-color: var(--clr-text-dark);
+      color: var(--clr-text-dark);
+      background: transparent;
+    }
+    body.dark-mode #darkToggle:hover,
+    body.dark-mode #darkToggle:focus {
+      background-color: var(--clr-primary-light);
+      border-color: var(--clr-primary-light);
+      color: white;
+    }
+    body.dark-mode .project-card {
+      background-color: #1e1e1e;
+      box-shadow: 0 6px 16px var(--clr-shadow-dark);
+      color: var(--clr-text-dark);
+    }
+    body.dark-mode #backToTop {
+      background-color: var(--clr-primary-light);
+    }
+    body.dark-mode #backToTop:hover,
+    body.dark-mode #backToTop:focus {
+      background-color: var(--clr-primary);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .project-card {
+        padding: 1rem;
+      }
+      .project-card h3 {
+        font-size: 1.2rem;
+      }
+      .project-card p {
+        font-size: 0.9rem;
+      }
+      nav ul {
+        flex-direction: column;
+        background-color: #222831;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        max-height: 0;
+       
+        transition: max-height 0.3s ease-in-out;
+        border-radius: 0 0 0 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+      nav ul.show {
+        max-height: 500px;
+      }
+      nav ul li {
+        margin: 1rem 0;
+        text-align: right;
+        padding-right: 1.5rem;
+      }
+      #menuToggle {
+        display: block;
+      }
+      #darkToggle {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <nav role="navigation" aria-label="Primary Navigation">
+      <button id="menuToggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul id="primary-navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="credentials.html">Credentials</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="darkToggle" aria-pressed="false" aria-label="Toggle dark mode">Dark Mode</button>
+  </header>
+
+  <main role="main" class="container">
+    <section aria-label="Projects Section">
+      <h2>My Projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3><i class="fas fa-shield-alt"></i> Social Media Hacking Toolkit</h3>
+          <p>A custom-built Kali Linux toolkit for OSINT and penetration testing on social platforms. Includes brute force, phishing modules (ethical use).</p>
+          <div class="project-links">
+            <a href="#">View Code</a>
+            <a href="#">Live Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3><i class="fas fa-globe"></i> Personal Portfolio Website</h3>
+          <p>This very website! Designed and built from scratch using HTML, CSS, and JavaScript with a custom dark mode and mobile responsiveness.</p>
+          <div class="project-links">
+            <a href="#">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3><i class="fas fa-terminal"></i> Automation Scripts (Python)</h3>
+          <p>Python scripts to automate daily cybersecurity tasks, such as subdomain enumeration, port scanning, and wordlist-based testing.</p>
+          <div class="project-links">
+            <a href="#">View Code</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3><i class="fas fa-network-wired"></i> WiFi Password Cracker (WPA2)</h3>
+          <p>A Wi-Fi attack simulation script using `aircrack-ng` and `pyrit`, tested in ethical lab environments only.</p>
+          <div class="project-links">
+            <a href="#">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3><i class="fas fa-lock"></i> Password Generator (Web App)</h3>
+          <p>A secure and stylish password generator web app built with HTML, CSS, and JavaScript, with strength indicators and clipboard support.</p>
+          <div class="project-links">
+            <a href="#">Try it Live</a>
+            <a href="#">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="backToTop" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkToggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        darkToggle.setAttribute('aria-pressed', isDark);
+        darkToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      });
+    }
+
+    // Hamburger toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const primaryNav = document.getElementById('primary-navigation');
+    if (menuToggle && primaryNav) {
+      menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        primaryNav.classList.toggle('show');
+      });
+    }
+
+    // Fade in sections on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      function fadeOnScroll() {
+        const scrollPos = window.scrollY + window.innerHeight * 0.85;
+        sections.forEach((sec) => {
+          if (scrollPos > sec.offsetTop) {
+            sec.classList.add('visible');
+          }
+        });
+      }
+      fadeOnScroll();
+      window.addEventListener('scroll', fadeOnScroll);
+
+      // Back to top button
+      const backToTop = document.getElementById('backToTop');
+      if (backToTop) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            backToTop.style.display = 'block';
+          } else {
+            backToTop.style.display = 'none';
+          }
+        });
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
