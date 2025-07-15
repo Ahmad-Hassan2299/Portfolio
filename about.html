@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahmad Hassan | About Me</title>
+  <meta name="description" content="Learn more about Ahmad Hassan, a cybersecurity and web development enthusiast." />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Your existing inline CSS */
+    .about-img {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .about-img img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #ff4757;
+    }
+    .skills-bar {
+      background: #e0e0e0;
+      border-radius: 25px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .skills-bar-fill {
+      height: 20px;
+      line-height: 20px;
+      padding-left: 10px;
+      background: #ff4757;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    .reason-card {
+      background: #f9f9f9;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid #ff4757;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    /* NEW: Responsive Navigation Styles */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #222831;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    nav ul li a.active,
+    nav ul li a:hover,
+    nav ul li a:focus {
+      border-bottom-color: #ff4757;
+      color: #ff4757;
+      outline: none;
+    }
+
+    /* Hamburger Button */
+    #menuToggle {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: none;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background-color: #222831;
+        position: absolute;
+        top: 60px; /* header height approx */
+        right: 0;
+        width: 200px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        border-radius: 0 0 0 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+      nav ul.show {
+        max-height: 500px; /* large enough to show all links */
+      }
+      nav ul li {
+        margin: 1rem 0;
+        text-align: right;
+        padding-right: 1.5rem;
+      }
+      #menuToggle {
+        display: block;
+      }
+      /* Adjust dark mode toggle to smaller and moved */
+      #darkToggle {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <nav role="navigation" aria-label="Primary Navigation">
+      <button id="menuToggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul id="primary-navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Me</a></li>
+        <li><a href="credentials.html">Credentials</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="darkToggle" aria-pressed="false" aria-label="Toggle dark mode">Dark Mode</button>
+  </header>
+
+  <main role="main" class="container">
+    <section tabindex="-1" aria-label="About me section">
+      <h2>About Me</h2>
+      <div class="about-img">
+        <img src="2.JPG" alt="Ahmad Hassan Profile Picture" />
+      </div>
+      <p><strong>Name:</strong> Ahmad Hassan</p>
+      <p><strong>Age:</strong> 17</p>
+      <p><strong>Date of Birth:</strong> November 26, 2007</p>
+      <p><strong>Civil Status:</strong> Single</p>
+      <p><strong>Nationality:</strong> Pakistani</p>
+      <p><strong>Languages Spoken:</strong> English, Urdu, Punjabi</p>
+      <p><strong>Address:</strong> 5 Abdullah bin Abbass Street, Maysaloom Al Sharq, Sharjah</p>
+      <p><strong>Programming Languages:</strong> HTML, CSS, JavaScript, Python, Java</p>
+      <p><strong>Operating Systems:</strong> Windows, MacOS, Linux</p>
+    </section>
+
+    <section aria-label="Skills Section">
+      <h2>Technical Skills</h2>
+      <div>
+        <p>HTML</p>
+        <div class="skills-bar"><div class="skills-bar-fill" style="width: 95%">95%</div></div>
+        <p>CSS</p>
+        <div class="skills-bar"><div class="skills-bar-fill" style="width: 90%">90%</div></div>
+        <p>JavaScript</p>
+        <div class="skills-bar"><div class="skills-bar-fill" style="width: 85%">85%</div></div>
+        <p>Python</p>
+        <div class="skills-bar"><div class="skills-bar-fill" style="width: 75%">75%</div></div>
+        <p>Java</p>
+        <div class="skills-bar"><div class="skills-bar-fill" style="width: 70%">70%</div></div>
+        <p>Linux</p>
+        <div class="skills-bar"><div class="skills-bar-fill" style="width: 80%">80%</div></div>
+      </div>
+    </section>
+
+    <section aria-label="Why Hire Me">
+      <h2>Why Hire Me?</h2>
+      <div class="reason-card">
+        <p><strong>1. Strong Passion for Cybersecurity:</strong> I actively pursue knowledge in penetration testing, ethical hacking, and defensive security strategies. I regularly participate in platforms like TryHackMe and Hack The Box.</p>
+      </div>
+      <div class="reason-card">
+        <p><strong>2. Solid Coding Foundation:</strong> Proficient in full-stack web development and automation using Python, I can build secure, optimized systems from the ground up.</p>
+      </div>
+      <div class="reason-card">
+        <p><strong>3. Real-World Experience:</strong> I’ve worked on various practical projects including social media toolkits, web apps, and OSINT scripting, combining theory and application.</p>
+      </div>
+      <div class="reason-card">
+        <p><strong>4. Self-Motivated & Adaptive:</strong> I’m a fast learner who thrives on challenges, adapts to evolving threats and technologies, and continuously sharpens my skill set.</p>
+      </div>
+      <div class="reason-card">
+        <p><strong>5. Team Player with Vision:</strong> I collaborate well and have long-term goals to innovate in cybersecurity, contribute to open source, and mentor others.</p>
+      </div>
+    </section>
+
+    <section aria-label="What Sets Me Apart">
+      <h2>What Makes Me Different?</h2>
+      <ul>
+        <li>I started cybersecurity early and built a strong foundation before 18.</li>
+        <li>I understand both offensive and defensive security approaches.</li>
+        <li>I balance technical excellence with creativity and communication.</li>
+        <li>I aim to make a real-world impact, not just write code.</li>
+        <li>My personal commitment to discipline, hard work, and ethical practice defines me.</li>
+      </ul>
+    </section>
+  </main>
+
+  <button id="backToTop" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="scripts.js"></script>
+  <script>
+    // Hamburger toggle script
+    const menuToggle = document.getElementById('menuToggle');
+    const primaryNav = document.getElementById('primary-navigation');
+
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      primaryNav.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
