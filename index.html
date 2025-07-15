@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahmad Hassan | Cybersecurity Portfolio</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    rel="stylesheet"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* Your existing CSS (trimmed here for brevity) */
+    /* ... */
+    
+    /* NAVIGATION - Add hamburger menu styles */
+    header nav {
+      position: relative;
+    }
+
+    /* Hide hamburger button by default */
+    #navToggle {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      z-index: 101;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Responsive: When screen width <= 768px */
+    @media (max-width: 768px) {
+      nav ul {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 220px;
+        background-color: #222831;
+        flex-direction: column;
+        padding-top: 5rem;
+        gap: 1.5rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+        z-index: 100;
+      }
+      nav ul.open {
+        transform: translateX(0);
+      }
+      nav ul li a {
+        font-size: 1.25rem;
+        padding: 0.75rem 1rem;
+        display: block;
+      }
+      #navToggle {
+        display: block;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <nav>
+    <button id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+   <ul id="primary-navigation">
+  <li><a href="index.html" class="active">Home</a></li>
+  <li><a href="about.html">About Me</a></li>
+  <li><a href="credentials.html">Credentials</a></li>
+  <li><a href="projects.html">Projects</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+
+  </nav>
+  <button id="darkToggle" aria-label="Toggle dark mode">Dark Mode</button>
+</header>
+
+<div class="container">
+
+  <aside class="sidebar" aria-label="About Me Sidebar">
+    <img src="ProfilePic2.jpg" alt="Ahmad Hassan Profile Picture" />
+    <h2>Ahmad Hassan</h2>
+    <p><strong>Age:</strong> 17</p>
+    <p><strong>Nationality:</strong> Pakistani</p>
+    <p><strong>Languages:</strong> English, Urdu, Punjabi</p>
+    <p><strong>Address:</strong> 5 Abdullah bin Abbass Street, Maysaloom Al Sharq, Sharjah</p>
+    <a href="resume.pdf" download style="display:inline-block; margin-top: 20px; background:#ff4757; color:white; padding:10px 20px; border-radius:8px; font-weight:600; text-align:center;">Download Resume</a>
+  </aside>
+
+  <main class="content">
+
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1 id="typed-name"></h1>
+        <h2 id="typed-subtitle"></h2>
+        <p>
+          Welcome to my portfolio. Here you’ll find my journey and expertise in cybersecurity, ethical hacking, and web development. I am passionate about technology and continuously improving my skills.
+        </p>
+      </div>
+      <div class="hero-img">
+        <img src="2.JPG" alt="Ahmad Hassan" />
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p><strong>Name:</strong> Ahmad Hassan</p>
+      <p><strong>Age:</strong> 17</p>
+      <p><strong>Date of Birth:</strong> November 26, 2007</p>
+      <p><strong>Nationality:</strong> Pakistani</p>
+      <p><strong>Languages Spoken:</strong> English, Urdu, Punjabi</p>
+      <p><strong>Address:</strong> 5 Abdullah bin Abbass Street, Maysaloom Al Sharq, Sharjah</p>
+      <p><strong>Programming Languages:</strong> HTML, CSS, JavaScript, Python</p>
+      <p><strong>Operating Systems:</strong> Windows, macOS, Linux</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p><strong>High School:</strong> Government School, Lahore, Pakistan</p>
+      <p><strong>College:</strong> Pak Vision College, Lahore, Pakistan</p>
+      <p><strong>University:</strong> Bachelor’s Degree in Cybersecurity, Bath Spa University, Ras-al-Khaimah (1st Year Completed)</p>
+    </section>
+
+    <section id="goals">
+      <h2>Professional Goals</h2>
+      <ul>
+        <li>Become a Certified Ethical Hacker (CEH)</li>
+        <li>Achieve Offensive Security Certified Professional (OSCP)</li>
+        <li>Specialize in Cloud & Network Security</li>
+        <li>Develop impactful open-source cybersecurity tools</li>
+        <li>Build a personal brand via blogging, GitHub & public speaking</li>
+        <li>Join top cybersecurity firms or government agencies</li>
+        <li>Launch a cybersecurity consultancy or SaaS product</li>
+        <li>Stay updated with emerging AI & security tech</li>
+        <li>Mentor and contribute to the cybersecurity community</li>
+      </ul>
+    </section>
+
+    <section id="hobbies">
+      <h2>Hobbies & Interests</h2>
+      <ul>
+        <li>Ethical hacking & penetration testing</li>
+        <li>Web development & design</li>
+        <li>Gym & fitness activities</li>
+        <li>Gaming (strategy & puzzle games)</li>
+        <li>Reading cybersecurity blogs & forums</li>
+        <li>Watching tech documentaries & tutorials</li>
+        <li>Exploring Linux and open-source tools</li>
+        <li>Participating in CTF competitions</li>
+        <li>Building automation scripts with Python</li>
+        <li>Learning AI and its security implications</li>
+      </ul>
+    </section>
+
+    <section id="contact" aria-label="Contact Form Section">
+      <h2>Contact Me</h2>
+      <form id="contactForm" novalidate>
+        <label for="name">Name <span aria-hidden="true">*</span></label>
+        <input type="text" id="name" name="name" required placeholder="Your full name" />
+        
+        <label for="email">Email <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+        
+        <label for="message">Message <span aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+        
+        <button type="submit">Send Message</button>
+      </form>
+      <p id="formMsg" role="alert" style="margin-top: 15px; font-weight: 600;"></p>
+    </section>
+
+    <div class="social-media" aria-label="Social media links">
+      <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/feed/you" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/ahmad-hassan-075a05373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:ahmadhassan2299@icloud.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </main>
+</div>
+
+<button id="backToTop" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<footer>
+  &copy; 2025 Ahmad Hassan. All rights reserved.
+</footer>
+
+<script>
+  // Dark mode toggle
+  const darkToggle = document.getElementById('darkToggle');
+  if (darkToggle) {
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      darkToggle.setAttribute('aria-pressed', isDark);
+      darkToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    });
+  }
+
+  // Navigation hamburger toggle
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('primary-navigation');
+  if(navToggle && navMenu){
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      navMenu.classList.toggle('open');
+    });
+  }
+
+  // Typing animation on homepage only
+  function typeText(element, text, delay = 100, callback) {
+    let index = 0;
+    element.textContent = '';
+    function type() {
+      if (index < text.length) {
+        element.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, delay);
+      } else if (callback) {
+        callback();
+      }
+    }
+    type();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Homepage hero typing animation
+    const nameEl = document.getElementById('typed-name');
+    const subtitleEl = document.getElementById('typed-subtitle');
+    const heroSection = document.querySelector('.hero');
+    if (nameEl && subtitleEl && heroSection) {
+      setTimeout(() => {
+        heroSection.classList.add('visible');
+        typeText(nameEl, 'Ahmad Hassan', 120, () => {
+          typeText(subtitleEl, 'Cybersecurity & Web Developer', 60);
+        });
+      }, 500);
+    }
+
+    // Fade in sections on scroll
+    const sections = document.querySelectorAll('section, aside.sidebar, .social-media');
+    function fadeOnScroll() {
+      const scrollPos = window.scrollY + window.innerHeight * 0.85;
+      sections.forEach((sec) => {
+        if (scrollPos > sec.offsetTop) {
+          sec.classList.add('visible');
+        }
+      });
+    }
+    fadeOnScroll();
+    window.addEventListener('scroll', fadeOnScroll);
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          backToTop.style.display = 'block';
+        } else {
+          backToTop.style.display = 'none';
+        }
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Contact form validation & mock submission
+    const contactForm = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMsg');
+
+    if (contactForm && formMsg) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        formMsg.textContent = '';
+        formMsg.style.color = '';
+
+        const name = contactForm.name.value.trim();
+        const email = contactForm.email.value.trim();
+        const message = contactForm.message.value.trim();
+
+        if (!name || !email || !message) {
+          formMsg.style.color = '#ff4757';
+          formMsg.textContent = 'Please fill in all required fields.';
+          return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          formMsg.style.color = '#ff4757';
+          formMsg.textContent = 'Please enter a valid email address.';
+          return;
+        }
+
+        formMsg.style.color = '#2ecc71';
+        formMsg.textContent = 'Thank you for your message! I will get back to you soon.';
+        contactForm.reset();
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
