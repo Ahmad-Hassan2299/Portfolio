@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Ahmad Hassan</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    :root {
+      --clr-bg-light: #f0f0f0;
+      --clr-bg-dark: #1e1e1e;
+      --clr-primary: #ff4757;
+      --clr-primary-light: #ff6b81;
+      --clr-text-light: #1a1a1a;
+      --clr-text-dark: #f1f1f1;
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --font-heading: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: var(--clr-bg-light);
+      color: var(--clr-text-light);
+      font-family: var(--font-main);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: var(--clr-bg-dark);
+      color: var(--clr-text-dark);
+    }
+    header {
+      background-color: #222831;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid transparent;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: var(--clr-primary);
+      border-bottom: 2px solid var(--clr-primary);
+    }
+    nav ul li a.active {
+      color: var(--clr-primary);
+      border-bottom: 2px solid var(--clr-primary);
+    }
+    #menuToggle {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: none;
+      color: white;
+      font-size: 1.5rem;
+    }
+    #darkToggle {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    #darkToggle:hover,
+    #darkToggle:focus {
+      background-color: var(--clr-primary);
+      border-color: var(--clr-primary);
+      color: white;
+    }
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 3rem auto;
+      background: #fff;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    body.dark-mode .contact-section {
+      background: #2c2c2c;
+    }
+    .left-banner {
+      flex: 1 1 300px;
+      background-color: var(--clr-primary);
+      color: white;
+      padding: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: background 0.3s ease;
+    }
+    .left-banner h1 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      margin: 0;
+      transition: transform 0.3s ease;
+    }
+    .left-banner:hover h1 {
+      transform: scale(1.05);
+    }
+    .left-banner:hover .banner-content {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      border: 2px solid white;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+    }
+    .social-links a:hover {
+      background: white;
+      color: var(--clr-primary);
+      transform: scale(1.1);
+    }
+    .left-banner h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-align: center;
+    }
+    .right-form {
+      flex: 2;
+      padding: 3rem;
+      background: white;
+      transition: background 0.3s;
+    }
+    body.dark-mode .right-form {
+      background: #333;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-family: var(--font-main);
+      transition: border 0.3s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--clr-primary);
+      box-shadow: 0 0 6px rgba(75, 75, 75, 0.4);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .send-btn {
+      background-color: var(--clr-primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .send-btn:hover {
+      background-color: var(--clr-primary-light);
+      transform: scale(1.05);
+    }
+    #formMsg {
+      margin-top: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+      }
+      .left-banner, .right-form {
+        padding: 2rem;
+      }
+      .left-banner h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        flex-direction: column;
+        background-color: #222831;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        border-radius: 0 0 0 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+      nav ul.show {
+        max-height: 500px;
+      }
+      nav ul li {
+        margin: 1rem 0;
+        text-align: right;
+        padding-right: 1.5rem;
+      }
+      #menuToggle {
+        display: block;
+      }
+      #darkToggle {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav role="navigation" aria-label="Primary Navigation">
+      <button id="menuToggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul id="primary-navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="credentials.html">Credentials</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="darkToggle" aria-pressed="false" aria-label="Toggle dark mode">Dark Mode</button>
+  </header>
+  <section class="contact-section">
+    <div class="left-banner">
+      <h1>CONTACT ME</h1>
+      <div class="banner-content">
+        <div class="social-links">
+          <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/feed/you" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/ahmad-hassan-075a05373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:ahmadhassan2299@icloud.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <h2>Ahmad Hassan<br><small>Cybersecurity & Web Developer</small></h2>
+      </div>
+    </div>
+    <div class="right-form">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact Number</label>
+          <input type="tel" id="contact" name="contact" />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="send-btn">Send Message</button>
+        <p id="formMsg"></p>
+      </form>
+    </div>
+  </section>
+  <script>
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkToggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        darkToggle.setAttribute('aria-pressed', isDark);
+        darkToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      });
+    }
+
+    // Hamburger toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const primaryNav = document.getElementById('primary-navigation');
+    if (menuToggle && primaryNav) {
+      menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        primaryNav.classList.toggle('show');
+      });
+    }
+
+    // Contact form validation
+    const contactForm = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMsg');
+    if (contactForm && formMsg) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        formMsg.textContent = '';
+        formMsg.style.color = '';
+
+        const name = contactForm.name.value.trim();
+        const email = contactForm.email.value.trim();
+        const message = contactForm.message.value.trim();
+
+        if (!name || !email || !message) {
+          formMsg.style.color = '#ff4757';
+          formMsg.textContent = 'Please fill in all required fields.';
+          return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          formMsg.style.color = '#ff4757';
+          formMsg.textContent = 'Please enter a valid email address.';
+          return;
+        }
+
+        formMsg.style.color = '#2ecc71';
+        formMsg.textContent = 'Thank you for your message! I will get back to you soon.';
+        contactForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>
